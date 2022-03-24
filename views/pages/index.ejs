@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="border-0 w-full text-white">
+
+        <!-- header -->
+        <div class="flex justify-between items-center border-0 w-11/12 md:w-2/3 mx-auto mt-6 md:mt-16">
+            <div class="border-0 w-1/2"><img src="images/logo_makeit.png"></div>
+            <div class="border-0 text-right text-gray-200">
+                <div class="flex items-center mb-2">
+                    <div class="font-bold text-base md:text-2xl mr-4">Carlos Veloso</div>
+                    <div class=""><img class="h-6" src="images/exit_icon.svg"></div>
+                </div>
+                <div class="text-sm md:text-lg">Last Changed Balance At</div>
+                <div class="text-sm md:text-lg"><%= last_changed_balance_at  %></div>
+            </div>
+        </div>
+
+        <!-- data block #1 -->
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Overall balances</div>
+                <div class="text-sm md:text-lg mt-2">(combined from all exchanges)</div>
+            </div>
+            <div class="flex-col rounded-lg bg-gray-600 mt-8 p-6">
+                <!-- list header -->
+                <div class="flex justify-between font-bold text-gray-300 text-sm md:text-lg border-0 mb-6">
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/btc_icon.svg">
+                        <div class="">BTC</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eth_icon.svg">
+                        <div class="">ETH</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/usdt_icon.svg">
+                        <div class="">USDT</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eur_icon.svg">
+                        <div class="">EUR</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/token_icon.svg">
+                        <div class="">TOKEN</div>
+                    </div>
+                </div>
+
+                <!-- line 1 -->
+                <div class="flex justify-between font-thin text-base md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= crypto.btc  %></div>
+                    <div class="border-0"><%= crypto.eth  %></div>
+                    <div class="border-0"><%= crypto.usdt  %></div>
+                    <div class="border-0"><%= crypto.eur  %></div>
+                    <div class="border-0"><%= crypto.token  %></div>
+                </div>
+
+                <!-- txt line2 -->
+                <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
+                
+                <!-- line 2 -->
+                <div class="flex justify-between font-bold text-lg md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_change_24_h.btc  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_change_24_h.eth  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_change_24_h.usdt  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_change_24_h.eur  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_change_24_h.token  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <!-- big numbers -->
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mb-16">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Ordermanagement Overview </div>
+            </div>
+
+            <!-- 5 cols -->
+            <div class="flex mt-8 p-0 space-x-4 md:space-x-8">
+
+                <!-- col 1 -->
+                <div class="w-3/12">
+                    <div class="flex justify-center items-baseline rounded-lg bg-gray-600 mb-4 p-4 md:p-8 shadow-inner text-green-400">
+                        <div class="text-xl mr-1">$</div>
+                        <div class="font-thin text-3xl md:text-5xl tracking-tight">111B</div>
+                    </div>
+                    <div class="">
+                        <p class="text-sm md:text-lg leading-5">Total amount of (all) trading volume all exchanges, since start of project</p>
+                    </div>
+                </div>
+
+                <!-- col 2 -->
+                <div class="w-3/12">
+                    <div class="flex justify-center items-baseline rounded-lg bg-gray-600 mb-4 p-4 md:p-8 shadow-inner text-green-400">
+                        <div class="text-xl mr-1">$</div>
+                        <div class="font-thin text-3xl md:text-5xl tracking-tight">111B</div>
+                    </div>
+                    <div class="">
+                        <p class="text-sm md:text-lg leading-5">Total amount of (all) trading volume all exchanges, since start of project</p>
+                    </div>
+                </div>
+
+                <!-- col 3 -->
+                <div class="w-3/12">
+                    <div class="flex justify-center items-baseline rounded-lg bg-gray-600 mb-4 p-4 md:p-8 shadow-inner text-green-400">
+                        <div class="text-xl mr-1">$</div>
+                        <div class="font-thin text-3xl md:text-5xl tracking-tight">111B</div>
+                    </div>
+                    <div class="">
+                        <p class="text-sm md:text-lg leading-5">Total amount of (all) trading volume all exchanges, since start of project</p>
+                    </div>
+                </div>
+
+                <!-- col 4 -->
+                <div class="w-3/12">
+                    <div class="flex justify-center items-baseline rounded-lg bg-gray-600 mb-4 p-4 md:p-8 shadow-inner text-green-400">
+                        <div class="text-xl mr-1">$</div>
+                        <div class="font-thin text-3xl md:text-5xl tracking-tight">111B</div>
+                    </div>
+                    <div class="">
+                        <p class="text-sm md:text-lg leading-5">Total amount of (all) trading volume all exchanges, since start of project</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
