@@ -27,7 +27,7 @@ app.get('/', async (req, res) => {
 
 
     let _24_change = await conn.query(await readFile('./get_24h_change.sql', 'utf8'));
-    _24_change = _24_change[3];
+    _24_change = _24_change[6];
 
 
     const crypto_change_24_h = {
