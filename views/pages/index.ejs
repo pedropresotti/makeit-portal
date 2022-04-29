@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <!-- data block #1 -->
+
         <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
             <div class="">
                 <div class="text-3xl md:text-5xl font-bold">Overall balances</div>
@@ -54,41 +54,41 @@
                 </div>
 
                 <!-- line 1 -->
-                <div class="flex justify-between font-thin text-base md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
-                    <div class="border-0"><%= crypto.btc  %></div>
-                    <div class="border-0"><%= crypto.eth  %></div>
-                    <div class="border-0"><%= crypto.usdt  %></div>
-                    <div class="border-0"><%= crypto.eur  %></div>
-                    <div class="border-0"><%= crypto.token  %></div>
+                <div class="flex justify-between font-thin text-xs md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= dashboard_by_currency.balance_current_btc  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.balance_current_eth  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.balance_current_usdt  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.balance_current_eur  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.balance_current_token  %></div>
                 </div>
 
                 <!-- txt line2 -->
                 <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
                 
                 <!-- line 2 -->
-                <div class="flex justify-between font-bold text-lg md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                <div class="flex justify-between font-bold text-xs md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
                     <div class="flex items-baseline">
-                        <div class=""><%= crypto_change_24_h.btc  %></div>
+                        <div class=""><%= dashboard_by_currency.balance_change_btc  %></div>
                         <div class="font-normal text-xs md:text-sm">%</div>
                        <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
                     </div>
                     <div class="flex items-baseline">
-                        <div class=""><%= crypto_change_24_h.eth  %></div>
+                        <div class=""><%= dashboard_by_currency.balance_change_eth  %></div>
                         <div class="font-normal text-xs md:text-sm">%</div>
                       <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
                     </div>
                     <div class="flex items-baseline">
-                        <div class=""><%= crypto_change_24_h.usdt  %></div>
+                        <div class=""><%= dashboard_by_currency.balance_change_usdt  %></div>
                         <div class="font-normal text-xs md:text-sm">%</div>
                       <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
                     </div>
                     <div class="flex items-baseline">
-                        <div class=""><%= crypto_change_24_h.eur  %></div>
+                        <div class=""><%= dashboard_by_currency.balance_change_eur  %></div>
                         <div class="font-normal text-xs md:text-sm">%</div>
                       <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
                     </div>
                     <div class="flex items-baseline">
-                        <div class=""><%= crypto_change_24_h.token  %></div>
+                        <div class=""><%= dashboard_by_currency.balance_change_token  %></div>
                         <div class="font-normal text-xs md:text-sm">%</div>
                        <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
                     </div>
@@ -99,10 +99,589 @@
             </div>
         </div>
 
+
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Total P&L in USDT</div>
+                <div class="text-sm md:text-lg mt-2">(combined from all exchanges)</div>
+            </div>
+            <div class="flex-col rounded-lg bg-gray-600 mt-8 p-6">
+                <!-- list header -->
+                <div class="flex justify-between font-bold text-gray-300 text-sm md:text-lg border-0 mb-6">
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/btc_icon.svg">
+                        <div class="">BTC</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eth_icon.svg">
+                        <div class="">ETH</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/usdt_icon.svg">
+                        <div class="">USDT</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eur_icon.svg">
+                        <div class="">EUR</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/token_icon.svg">
+                        <div class="">TOKEN</div>
+                    </div>
+                </div>
+
+                <!-- line 1 -->
+                <div class="flex justify-between font-thin text-xs md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= dashboard_by_currency.PNL_usdt_total_btc  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.PNL_usdt_total_eth  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.PNL_usdt_total_usdt  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.PNL_usdt_total_eur  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.PNL_usdt_total_token  %></div>
+                </div>
+
+                <!-- txt line2 -->
+                <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
+                
+                <!-- line 2 -->
+                <div class="flex justify-between font-bold text-xs md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_usdt_change_btc  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_usdt_change_eth  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_usdt_change_usdt  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_usdt_change_eur  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_usdt_change_token  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Total Trading Volume</div>
+                <div class="text-sm md:text-lg mt-2">(combined from all exchanges)</div>
+            </div>
+            <div class="flex-col rounded-lg bg-gray-600 mt-8 p-6">
+                <!-- list header -->
+                <div class="flex justify-between font-bold text-gray-300 text-sm md:text-lg border-0 mb-6">
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/btc_icon.svg">
+                        <div class="">BTC</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eth_icon.svg">
+                        <div class="">ETH</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/usdt_icon.svg">
+                        <div class="">USDT</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eur_icon.svg">
+                        <div class="">EUR</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/token_icon.svg">
+                        <div class="">TOKEN</div>
+                    </div>
+                </div>
+
+                <!-- line 1 -->
+                <div class="flex justify-between font-thin text-xs md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= dashboard_by_currency.trading_volume_total_btc  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.trading_volume_total_eth  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.trading_volume_total_usdt  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.trading_volume_total_eur  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.trading_volume_total_token  %></div>
+                </div>
+
+                <!-- txt line2 -->
+                <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
+                
+                <!-- line 2 -->
+                <div class="flex justify-between font-bold text-xs md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.trading_volume_change_btc  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.trading_volume_change_eth  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.trading_volume_change_usdt  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.trading_volume_change_eur  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.trading_volume_change_token  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Total P&L</div>
+                <div class="text-sm md:text-lg mt-2">(combined from all exchanges)</div>
+            </div>
+            <div class="flex-col rounded-lg bg-gray-600 mt-8 p-6">
+                <!-- list header -->
+                <div class="flex justify-between font-bold text-gray-300 text-sm md:text-lg border-0 mb-6">
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/btc_icon.svg">
+                        <div class="">BTC</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eth_icon.svg">
+                        <div class="">ETH</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/usdt_icon.svg">
+                        <div class="">USDT</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eur_icon.svg">
+                        <div class="">EUR</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/token_icon.svg">
+                        <div class="">TOKEN</div>
+                    </div>
+                </div>
+
+                <!-- line 1 -->
+                <div class="flex justify-between font-thin text-xs md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= dashboard_by_currency.PNL_total_btc  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.PNL_total_eth  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.PNL_total_usdt  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.PNL_total_eur  %></div>
+                    <div class="border-0"><%= dashboard_by_currency.PNL_total_token  %></div>
+                </div>
+
+                <!-- txt line2 -->
+                <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
+                
+                <!-- line 2 -->
+                <div class="flex justify-between font-bold text-xs md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_change_btc  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_change_eth  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_change_usdt  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_change_eur  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= dashboard_by_currency.PNL_change_token  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <!-- data block #1 -->
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Overall balances</div>
+                <div class="text-sm md:text-lg mt-2">(every single exchange)</div>
+            </div>
+            <% for(let i= 0; i < dashboard_by_exchange_and_currency.length; i++) {
+                let exchange = dashboard_by_exchange_and_currency[i].exchange;
+                let crypto_group = dashboard_by_exchange_and_currency[i].crypto_group;
+               
+                %>
+            <div class="flex-col rounded-lg bg-gray-600 mt-8 p-6">
+                <!-- list header -->
+                <p><%= exchange  %></p>
+                <div class="flex justify-between font-bold text-gray-300 text-sm md:text-lg border-0 mb-6">
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/btc_icon.svg">
+                        <div class="">BTC</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eth_icon.svg">
+                        <div class="">ETH</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/usdt_icon.svg">
+                        <div class="">USDT</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eur_icon.svg">
+                        <div class="">EUR</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/token_icon.svg">
+                        <div class="">TOKEN</div>
+                    </div>
+                </div>
+
+                <!-- line 1 -->
+                <div class="flex justify-between font-thin text-xs md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= crypto_group.balance_current_btc  %></div>
+                    <div class="border-0"><%= crypto_group.balance_current_eth  %></div>
+                    <div class="border-0"><%= crypto_group.balance_current_usdt  %></div>
+                    <div class="border-0"><%= crypto_group.balance_current_eur  %></div>
+                    <div class="border-0"><%= crypto_group.balance_current_token  %></div>
+                </div>
+
+                <!-- txt line2 -->
+                <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
+                
+                <!-- line 2 -->
+                <div class="flex justify-between font-bold text-xs md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.balance_change_btc  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.balance_change_eth  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.balance_change_usdt  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.balance_change_eur  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.balance_change_token  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                </div>
+
+
+
+            </div><% } %>
+        </div>
+
+
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Total P&L</div>
+                <div class="text-sm md:text-lg mt-2">(every single exchange)</div>
+            </div>
+            <% for(let i= 0; i < dashboard_by_exchange_and_currency.length; i++) {
+                let exchange = dashboard_by_exchange_and_currency[i].exchange;
+                let crypto_group = dashboard_by_exchange_and_currency[i].crypto_group;
+               
+                %>
+            <div class="flex-col rounded-lg bg-gray-600 mt-8 p-6">
+                <!-- list header -->
+                <p><%= exchange  %></p>
+                <div class="flex justify-between font-bold text-gray-300 text-sm md:text-lg border-0 mb-6">
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/btc_icon.svg">
+                        <div class="">BTC</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eth_icon.svg">
+                        <div class="">ETH</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/usdt_icon.svg">
+                        <div class="">USDT</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eur_icon.svg">
+                        <div class="">EUR</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/token_icon.svg">
+                        <div class="">TOKEN</div>
+                    </div>
+                </div>
+
+                <!-- line 1 -->
+                <div class="flex justify-between font-thin text-xs md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= crypto_group.PNL_total_btc  %></div>
+                    <div class="border-0"><%= crypto_group.PNL_total_eth  %></div>
+                    <div class="border-0"><%= crypto_group.PNL_total_usdt  %></div>
+                    <div class="border-0"><%= crypto_group.PNL_total_eur  %></div>
+                    <div class="border-0"><%= crypto_group.PNL_total_token  %></div>
+                </div>
+
+                <!-- txt line2 -->
+                <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
+                
+                <!-- line 2 -->
+                <div class="flex justify-between font-bold text-xs md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_btc  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_eth  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_usdt  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_eur  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_token  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                </div>
+
+
+
+            </div><% } %>
+        </div>
+
+
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Total Trading Volume</div>
+                <div class="text-sm md:text-lg mt-2">(every single exchange)</div>
+            </div>
+            <% for(let i= 0; i < dashboard_by_exchange_and_currency.length; i++) {
+                let exchange = dashboard_by_exchange_and_currency[i].exchange;
+                let crypto_group = dashboard_by_exchange_and_currency[i].crypto_group;
+               
+                %>
+            <div class="flex-col rounded-lg bg-gray-600 mt-8 p-6">
+                <!-- list header -->
+                <p><%= exchange  %></p>
+                <div class="flex justify-between font-bold text-gray-300 text-sm md:text-lg border-0 mb-6">
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/btc_icon.svg">
+                        <div class="">BTC</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eth_icon.svg">
+                        <div class="">ETH</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/usdt_icon.svg">
+                        <div class="">USDT</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eur_icon.svg">
+                        <div class="">EUR</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/token_icon.svg">
+                        <div class="">TOKEN</div>
+                    </div>
+                </div>
+
+                <!-- line 1 -->
+                <div class="flex justify-between font-thin text-xs md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= crypto_group.trading_volume_total_btc  %></div>
+                    <div class="border-0"><%= crypto_group.trading_volume_total_eth  %></div>
+                    <div class="border-0"><%= crypto_group.trading_volume_total_usdt  %></div>
+                    <div class="border-0"><%= crypto_group.trading_volume_total_eur  %></div>
+                    <div class="border-0"><%= crypto_group.trading_volume_total_token  %></div>
+                </div>
+
+                <!-- txt line2 -->
+                <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
+                
+                <!-- line 2 -->
+                <div class="flex justify-between font-bold text-xs md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.trading_volume_change_btc  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.trading_volume_change_eth  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.trading_volume_change_usdt  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.trading_volume_change_eur  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.trading_volume_change_token  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                </div>
+
+
+
+            </div><% } %>
+        </div>
+        
+
+
+        <div class="border-0 w-11/12 md:w-2/3 mx-auto mt-16 mb-24 md:mb-32">
+            <div class="">
+                <div class="text-3xl md:text-5xl font-bold">Total P&L per exchange</div>
+                <div class="text-sm md:text-lg mt-2">(individually for every customer)</div>
+            </div>
+            <% for(let i= 0; i < dashboard_by_customer_exchange_and_currency.length; i++) {
+                let customer_name = dashboard_by_customer_exchange_and_currency[i].customer_name;
+
+                for(let j= 0; j < dashboard_by_customer_exchange_and_currency[i].CryptoGroupByExchange.length; j++) {
+                    let exchange =  dashboard_by_customer_exchange_and_currency[i].CryptoGroupByExchange[j].exchange;
+                    let crypto_group = dashboard_by_customer_exchange_and_currency[i].CryptoGroupByExchange[j].crypto_group;
+
+                %>
+               
+            <div class="flex-col rounded-lg bg-gray-600 mt-8 p-6">
+                <!-- list header -->
+                <p><%= customer_name + ': ' + exchange  %></p>
+                <div class="flex justify-between font-bold text-gray-300 text-sm md:text-lg border-0 mb-6">
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/btc_icon.svg">
+                        <div class="">BTC</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eth_icon.svg">
+                        <div class="">ETH</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/usdt_icon.svg">
+                        <div class="">USDT</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/eur_icon.svg">
+                        <div class="">EUR</div>
+                    </div>
+                    <div class="flex space-x-1 md:space-x-2 items-center">
+                        <img class="h-4 md:h-6" src="images/token_icon.svg">
+                        <div class="">TOKEN</div>
+                    </div>
+                </div>
+
+                <!-- line 1 -->
+                <div class="flex justify-between font-thin text-xs md:text-3xl bg-gray-700 p-4 mb-4 shadow-inner rounded-lg border-0">
+                    <div class="border-0"><%= crypto_group.PNL_total_btc  %></div>
+                    <div class="border-0"><%= crypto_group.PNL_total_eth  %></div>
+                    <div class="border-0"><%= crypto_group.PNL_total_usdt  %></div>
+                    <div class="border-0"><%= crypto_group.PNL_total_eur  %></div>
+                    <div class="border-0"><%= crypto_group.PNL_total_token  %></div>
+                </div>
+
+                <!-- txt line2 -->
+                <div class="text-xs text-gray-400 tracking-wide mb-2">% change in 24h</div>
+                
+                <!-- line 2 -->
+                <div class="flex justify-between font-bold text-xs md:text-2xl bg-gray-700 p-4 shadow-inner rounded-lg border-0">
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_btc  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_eth  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg"> -->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_usdt  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_eur  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                      <!--  <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                    <div class="flex items-baseline">
+                        <div class=""><%= crypto_group.PNL_change_token  %></div>
+                        <div class="font-normal text-xs md:text-sm">%</div>
+                       <!-- <img class="h-3 ml-1" src="images/arrow_up_icon.svg">-->
+                    </div>
+                </div>
+
+
+
+            </div><% }} %>
+
+
+
+
+
+
+
+
         <!-- big numbers -->
         <div class="border-0 w-11/12 md:w-2/3 mx-auto mb-16">
             <div class="">
-                <div class="text-3xl md:text-5xl font-bold">Ordermanagement Overview </div>
+                <div class="text-3xl md:text-5xl font-bold"><%=process.platform  %> Ordermanagement Overview </div>
             </div>
 
             <!-- 5 cols -->
@@ -153,6 +732,7 @@
                 </div>
 
             </div>
+        </div>
         </div>
     </div>
 </body>
